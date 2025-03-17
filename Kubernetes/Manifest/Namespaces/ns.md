@@ -60,3 +60,7 @@ kubectl apply -f pod.yaml -n dev
 ````
 kubectl get pod -n dev
 ````
+
+````
+kubectl get pods --all-namespaces
+````
