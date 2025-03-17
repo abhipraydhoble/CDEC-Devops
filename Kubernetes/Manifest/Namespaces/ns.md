@@ -52,6 +52,9 @@ kubectl config set-context --current  --namespace=dev
 kubectl config view --minify | grep namespace:
 ````
 ````
+kubectl config get-contexts
+````
+````
 kubectl apply -f pod.yaml -n dev
 ````
 ````
