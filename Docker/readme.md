@@ -14,3 +14,17 @@ sudo chmod +x /usr/local/bin/docker-compose
 ````
 docker-compose --version
 ````
+
+### docker compose commands
+````
+vim docker-compose.yaml
+````
+````
+docker-compose build
+````
+````
+docker-compose up -d
+````
+
+docker-compose down
+````
