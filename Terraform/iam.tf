@@ -1,8 +1,3 @@
-provider "aws" {
-    region = "ap-south-1"
-    profile = "tf-user"
-}
-
 
 resource "aws_iam_user" "user1" {
   
