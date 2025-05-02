@@ -23,6 +23,7 @@ sudo ./aws/install
 
 ```groovy
 
+
 pipeline {
     agent any
     
@@ -31,7 +32,7 @@ pipeline {
     }
     
     environment {
-        S3_BUCKET = 'jenkins-artifact-store-49'
+        S3_BUCKET = 'insure-me-artifacts'
         AWS_REGION = 'ap-southeast-1'
     }
 
@@ -48,15 +49,19 @@ pipeline {
             }
         }
         
-        stage('Upload to S3') {
+
+        stage('jenkins to s3'){
             steps {
-                script {
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+               script {
                     def warFile = 'target/Insurance-0.0.1-SNAPSHOT.jar'
                     sh "aws s3 cp ${warFile} s3://${S3_BUCKET}/artifacts/ --region ${AWS_REGION}"
                 }
+              }
             }
         }
     }
 }
+
 
 `````
