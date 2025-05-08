@@ -11,7 +11,7 @@ metadata:
   namespace: default
 type: Opaque
 stringData:
-  api-key: "<YOUR_DATADOG_API_KEY>"
+  api-key: "6ae657e64f887707264884fb77d66199"
 
 ````
 
