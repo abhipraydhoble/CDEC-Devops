@@ -1,3 +1,25 @@
+## Points to Cover in Terraform
+- Terraform Basics
+- Providers
+- create resources:
+  - ec2 instance
+  - vpc
+  - security group
+  - elb & asg
+  - three-tier code
+- terraform modules
+- terraform variables
+- tfvars file
+- state management(remote)
+- data, loops, functions, count
+- provisioners
+  
+
+
+
+
+
+
 ### $${\color{blue}\textbf{What is IAC}}$$
 
 - Infrastructure as Code (IaC) means managing infrastructure using code instead of doing it manually.
