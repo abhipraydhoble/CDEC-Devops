@@ -36,6 +36,22 @@ spec:
           limits:
             cpu: "200m"
 ````
+# service.yaml
+````
+apiVersion: v1
+kind: Service 
+metadata: 
+  name: hpa-service
+spec: 
+ selector:
+   app: nginx
+ ports: 
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+ type: ClusterIP
+````
+
 ````
 kubectl apply -f deployment.yaml
 ````
