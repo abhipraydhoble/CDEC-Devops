@@ -1,7 +1,7 @@
 resource  "aws_vpc" "vnet" {
     cidr_block = "192.168.0.0/16"
     tags = {
-        Name = "vpc-3tier"
+        Name = "vpc-three-tier"
     }
 }
 
@@ -40,7 +40,7 @@ resource "aws_internet_gateway" "igw-demo" {
 
     vpc_id = aws_vpc.vnet.id
     tags = {
-        Name = "igw-3tier"
+        Name = "igw-three-tier"
     }
 }
 
@@ -90,7 +90,7 @@ resource "aws_route_table_association" "rt-private-db" {
 }
 
 resource "aws_security_group" "demo-sg" {
-    name = "3tier-sg"
+    name = "three-tier-sg"
     description = "allow ports ssh db tomcat and http to instance"
     vpc_id = aws_vpc.vnet.id
     ingress {
@@ -125,17 +125,17 @@ resource "aws_security_group" "demo-sg" {
         cidr_blocks = ["0.0.0.0/0"]
     }
     tags = {
-        Name = "3tier-sg"
+        Name = "three-tier-sg"
     }
 }
 
 
 resource "aws_instance" "vm-nginx" {
-    ami = "ami-0c4e27b0c52857dd6"
+    ami = "ami-0afc7fe9be84307e4"
     instance_type = "t2.micro"
     subnet_id = aws_subnet.public.id
     vpc_security_group_ids = [aws_security_group.demo-sg.id]
-    key_name = "3tier"
+    key_name = "three-tier"
     
     tags = {
         Name = "Nginx-Instance"
@@ -153,11 +153,11 @@ resource "aws_instance" "vm-nginx" {
 
 
 resource "aws_instance" "vm-db" {
-    ami = "ami-0c4e27b0c52857dd6"
+    ami = "ami-0afc7fe9be84307e4"
     instance_type = "t2.micro"
     subnet_id = aws_subnet.private-db.id
     vpc_security_group_ids = [aws_security_group.demo-sg.id]
-    key_name = "3tier"
+    key_name = "three-tier"
     
     tags = {
         Name = "Database-Instance"
@@ -165,11 +165,11 @@ resource "aws_instance" "vm-db" {
 }
 
 resource "aws_instance" "vm-tom" {
-    ami = "ami-0c4e27b0c52857dd6"
+    ami = "ami-0afc7fe9be84307e4"
     instance_type = "t2.micro"
     subnet_id = aws_subnet.private-tom.id
     vpc_security_group_ids = [aws_security_group.demo-sg.id]
-    key_name = "3tier"
+    key_name = "three-tier"
     
     tags = {
         Name = "Tomcat-Instance"
