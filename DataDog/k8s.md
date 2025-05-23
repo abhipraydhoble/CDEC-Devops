@@ -83,4 +83,34 @@ kind: ServiceAccount
 metadata:
   name: datadog-agent
 ````
+---
+
+````
+minikube start
+````
+
+````
+helm version
+````
+
+````
+helm repo add datadog https://helm.datadoghq.com
+helm repo update
+````
+
+````
+helm install datadog-agent datadog/datadog \
+  --set datadog.apiKey=<YOUR_DATADOG_API_KEY> \
+  --set datadog.site='datadoghq.com' \
+  --set targetSystem=kubernetes \
+  --set datadog.logs.enabled=true \
+  --set datadog.apm.enabled=true \
+  --set datadog.processAgent.enabled=true \
+  --set daemonset.useHostPID=true \
+  --namespace default
+````
+````
+kubectl get pods -n default
+````
+
 
