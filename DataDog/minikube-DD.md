@@ -8,12 +8,25 @@ Create a Kubernetes Secret with Datadog API Key
 kubectl create secret generic datadog-secret \
   --from-literal api-key='<YOUR_DATADOG_API_KEY>'
 ````
-Apply Datadog Agent Manifest
+Add the Datadog Helm repository
 ````
-git clone https://github.com/DataDog/datadog-agent.git
-cd datadog-agent/deploy/kubernetes
+helm repo add datadog https://helm.datadoghq.com
+helm repo update
+
 ````
-edit api key and apply yaml
+install agent
 ````
-kubectl apply -f datadog-agent.yaml
+helm install datadog-agent datadog/datadog \
+  --set datadog.apiKey=<YOUR_DATADOG_API_KEY> \
+  --set datadog.site='datadoghq.com' \
+  --set targetSystem=kubernetes \
+  --set datadog.logs.enabled=true \
+  --set datadog.apm.enabled=true \
+  --set datadog.processAgent.enabled=true \
+  --set daemonset.useHostPID=true \
+  --namespace default
+````
+check pods
+````
+kubectl get pods
 ````
