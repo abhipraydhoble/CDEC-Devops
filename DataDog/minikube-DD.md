@@ -12,5 +12,8 @@ Apply Datadog Agent Manifest
 ````
 git clone https://github.com/DataDog/datadog-agent.git
 cd datadog-agent/deploy/kubernetes
+````
+edit api key and apply yaml
+````
 kubectl apply -f datadog-agent.yaml
 ````
