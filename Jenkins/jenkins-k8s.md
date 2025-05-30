@@ -1,5 +1,5 @@
 
-# Step - 1 : Create EKS t Host in AWS #
+## Step - 1 : Create EKS Host in AWS #
 
 1) Launch new Ubuntu VM using AWS Ec2 ( t2.micro )	  
 2) Connect to machine and install kubectl using below commands  
@@ -27,7 +27,7 @@ sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 ```
 
-# Step - 2 : Create IAM role & attach to EKS Management Host & Jenkins Server #
+## Create IAM role & attach to EKS Host & Jenkins Server #
 
 1) Create New Role using IAM service ( Select Usecase - ec2 ) 	
 2) Add below permissions for the role <br/>
@@ -48,7 +48,7 @@ eksctl version
 aws configure
 ````
 
-# Step: Create EKS Cluster using eksctl # 
+## Step: Create EKS Cluster using eksctl # 
 
 ````
 eksctl create cluster --name my-ekscluster --region ap-southeast-1 --version 1.32 --nodegroup-name linux-nodes --node-type t2.micro --nodes 2
@@ -67,7 +67,7 @@ Note:  After cluster created we can check nodes using below command.
 kubectl get nodes  
 ```
 
-# Step-4 : Jenkins Server Setup in Linux VM #
+## Jenkins Server Setup in Linux VM #
 
 Install Jenkins
 ````
@@ -90,14 +90,14 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 	  
 
-## Step-6 : Setup Docker in Jenkins ##
+##  Setup Docker in Jenkins ##
 ```
 curl -fsSL get.docker.com | /bin/bash
 sudo usermod -aG docker jenkins
 sudo systemctl restart jenkins
 sudo docker version
 ```
-# Install AWS CLI in JENKINS Server #  
+## Install AWS CLI in JENKINS Server #  
 
 **Install AWS CLI**
 ```
@@ -108,7 +108,7 @@ sudo ./aws/install
 aws --version
 ```
  
-#  Install Kubectl in JENKINS Server #
+##  Install Kubectl in JENKINS Server #
 
 
 ```
@@ -118,7 +118,7 @@ sudo mv ./kubectl /usr/local/bin
 kubectl version --short --client
 ```
 
-#  Update EKS Cluster Config File in Jenkins Server #
+##  Update EKS Cluster Config File in Jenkins Server #
 	
 1) Execute below command in Eks Management host & copy kube config file data <br/>
 	$ cat .kube/config 
@@ -138,11 +138,3 @@ kubectl version --short --client
 
 **Note: We should be able to see EKS cluster nodes here.**
 
-	
-# Step - 12 : Access Application in Browser #
-- **We should be able to access our application** <br/>
-URL : http://LBR/context-path/
-	
-# We are done with our Setup #
-	
-## Step - 13: After your practise, delete Cluster and other resources we have used in AWS Cloud to avoid billing ##
