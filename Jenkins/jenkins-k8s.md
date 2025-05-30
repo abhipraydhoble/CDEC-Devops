@@ -1,5 +1,5 @@
 
-## Step - 1 : Create EKS Host in AWS #
+## Create EKS Host in AWS #
 
 1) Launch new Ubuntu VM using AWS Ec2 ( t2.micro )	  
 2) Connect to machine and install kubectl using below commands  
