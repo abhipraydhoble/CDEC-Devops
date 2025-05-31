@@ -1,5 +1,12 @@
- 
-**Installation**
+## launch two instances (ubuntu) 
+## create ssh keypair
+````
+ssh-keygen
+````
+
+## copy public key And paste to worker node .ssh/authorized_keys file
+
+**Install ansible on master node**
   
 
 ````
@@ -18,7 +25,7 @@ ansible --version
 
 ````
 sudo nano /etc/ansible/hosts
-private-ip of instance
+private-ip of worker nodes
 ````
 
 ### edit ansible.cfg
