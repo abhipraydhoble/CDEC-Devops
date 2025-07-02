@@ -97,6 +97,9 @@ terraform --version
 ````
 aws configure --profile "tf-user"
 ````
+-  provide acccess key
+-  provide secret key
+-  region
 
 **add profile to provider.tf**
 ```tf
