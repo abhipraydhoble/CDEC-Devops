@@ -3,9 +3,8 @@ variable "instance_type" {
 
 }
 
-variable ami {
+variable "ami_id" {
   default = "ami-08f52b2e87cebadd9"
 }
 
-variable "key_name" {
-  default = "eks-key"
+
