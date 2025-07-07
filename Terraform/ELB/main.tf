@@ -1,7 +1,7 @@
 resource "aws_security_group" "web_sg" {
   name_prefix = "web-sg-"
   description = "Allow inbound HTTP and SSH traffic"
-  vpc_id      = "vpc-013090b88cc0b8d28"
+  vpc_id      = "vpc-0b513c39beed873c2"  #change vpc id
 
   ingress {
     from_port   = 80
@@ -33,7 +33,7 @@ resource "aws_security_group" "web_sg" {
 resource "aws_launch_template" "example" {
   name = "example-launch-template"
 
-  image_id      = var.ami  # Replace with your appropriate AMI ID
+  image_id      = var.ami_id  # Replace with your appropriate AMI ID
   instance_type = var.instance_type  # Adjust instance type as needed
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
@@ -44,11 +44,11 @@ resource "aws_launch_template" "example" {
               yum install -y httpd
               systemctl start httpd
               systemctl enable httpd
-              mkdir -p /var/www/html/mobile-app
-              mkdir -p /var/www/html/laptop-app
+              mkdir -p /var/www/html/mobile
+              mkdir -p /var/www/html/laptop
 
               # Mobile app index.html
-              cat <<EOF1 > /var/www/html/mobile-app/index.html
+              cat <<EOF1 > /var/www/html/mobile/index.html
               <html>
               <head><title>Mobile App</title></head>
               <body>
@@ -59,7 +59,7 @@ resource "aws_launch_template" "example" {
               EOF1
 
               # Laptop app index.html
-              cat <<EOF2 > /var/www/html/laptop-app/index.html
+              cat <<EOF2 > /var/www/html/laptop/index.html
               <html>
               <head><title>Laptop App</title></head>
               <body>
@@ -73,7 +73,7 @@ resource "aws_launch_template" "example" {
               systemctl restart httpd
 
               # Home page with instructions
-              echo "<h1>HOME PAGE add /mobile-app /laptop-app" > /var/www/html/index.html
+              echo "<h1>HOME PAGE add /mobile-app /laptop" > /var/www/html/index.html
               EOF
             )
 
@@ -88,8 +88,8 @@ resource "aws_autoscaling_group" "example_asg" {
     id      = aws_launch_template.example.id
     version = "$Latest"
   }
-
-  vpc_zone_identifier = ["subnet-093ed954c868e9f49", "subnet-03262313beb47a58f"]
+  #change subnet ids
+  vpc_zone_identifier = ["subnet-05bda144578ea9914", "subnet-0b6e1ae4003ff61b3"]
   min_size            = 1
   max_size            = 3
   desired_capacity    = 2
@@ -114,7 +114,7 @@ resource "aws_lb_target_group" "lb_tg_home" {
   name     = "lb-tg-home"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = "vpc-013090b88cc0b8d28"
+  vpc_id   = "vpc-0b513c39beed873c2"
 
   health_check {
     path                = "/"
@@ -132,7 +132,7 @@ resource "aws_lb_target_group" "lb_tg_laptop" {
   name     = "lb-tg-laptop"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = "vpc-013090b88cc0b8d28"
+  vpc_id   = "vpc-0b513c39beed873c2"
 
   health_check {
     path                = "/laptop/"
@@ -151,7 +151,7 @@ resource "aws_lb" "my_lb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.web_sg.id]  # Referencing the security group
-  subnets            = ["subnet-03262313beb47a58f", "subnet-093ed954c868e9f49"]  # Subnets to use for the load balancer
+  subnets            = ["subnet-05bda144578ea9914", "subnet-0b6e1ae4003ff61b3"]  # Subnets to use for the load balancer
 
   tags = {
     app = "my-lb"
