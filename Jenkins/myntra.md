@@ -164,6 +164,7 @@ Now at the right top corner click profile icon ->  My Account -> Security, Under
    
 
 ### Configuring Credentials on Jenkins
+<img width="1905" height="953" alt="image" src="https://github.com/user-attachments/assets/c69e3fdd-c4cb-4b7c-92a6-c01ddd93854c" />
 
 For SonarQube
 
