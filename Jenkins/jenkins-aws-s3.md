@@ -1,67 +1,76 @@
-# upload artifacts to s3:
-
-## pluggins required:
-- stage view
-- aws credentials
-- maven intergration
-- s3
-
-## go to credentials -> add credentials-> select aws credentials-> add acess key & secret key
-
-## go to tools-> maven-> save and apply
-
-## install aws cli in ec2 instance
-
+## Plugins Required
 ````
-sudo apt update -y
-sudo apt install unzip -y
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+stage view
 ````
-## create pipeline
+````
+aws credentials
+````
+````
+s3 publisher
+````
+````
+maven integration
+````
+````
+docker
+````
+**note: first 4 plugins of docker**
 
-```groovy
+## manage jenkins-> tools
+- maven
+- docker
 
+## manage jenkins-> credentials
+- **aws credentials**
+- access_key
+- secret_key
 
+## Pipeine
+````
 pipeline {
-    agent any
-    
+    agent any 
     tools {
         maven 'maven'
     }
     
-    environment {
-        S3_BUCKET = 'insure-me-artifacts'
-        AWS_REGION = 'ap-southeast-1'
-    }
-
-    stages {
-        stage('pull') {
-            steps {
+    environment{
+        S3_BUCKET = "studentapp-project-artifacts" 
+        AWS_REGION = "ap-southeast-1"
+        warFile = "target/Insurance-0.0.1-SNAPSHOT.jar"
+        }
+    
+    stages{
+        stage('code-pull'){
+            steps{
                 git branch: 'main', url: 'https://github.com/abhipraydhoble/Project-InsureMe.git'
             }
         }
         
-        stage('build') {
-            steps {
+        stage('code-build'){
+            steps{
                 sh 'mvn clean package'
             }
         }
-        
-
-        stage('jenkins to s3'){
+        stage('upload artifacts'){
             steps {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-               script {
-                    def warFile = 'target/Insurance-0.0.1-SNAPSHOT.jar'
-                    sh "aws s3 cp ${warFile} s3://${S3_BUCKET}/artifacts/ --region ${AWS_REGION}"
-                }
+                 sh 'aws s3 cp ${warFile} s3://${S3_BUCKET}/artifacts/ --region ${AWS_REGION}'
               }
+            }
+        }
+        
+        stage('code-Deploy'){
+            steps{
+                sh 'docker build -t image-one .'
+                sh 'docker run -itd --name cont-1 -p 8089:8081 image-one '
             }
         }
     }
 }
+````
 
 
-`````
+## repository link
+````
+https://github.com/abhipraydhoble/Project-InsureMe.git
+````
