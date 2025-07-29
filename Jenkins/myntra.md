@@ -164,7 +164,6 @@ Now at the right top corner click profile icon ->  My Account -> Security, Under
    
 
 ### Configuring Credentials on Jenkins
-<img width="1905" height="953" alt="image" src="https://github.com/user-attachments/assets/c69e3fdd-c4cb-4b7c-92a6-c01ddd93854c" />
 
 For SonarQube
 
@@ -373,9 +372,7 @@ Now click ``CREATE``
 ![image](https://github.com/user-attachments/assets/6696696c-524e-4bb0-8b82-4265018f4950)
 
 ### (Monitoring)Install Prometheus using Helm:
-
-- Set up Prometheus and Grafana to monitor your application.
-- install helm
+- installl helm
 ````
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
 sudo apt-get install apt-transport-https --yes
@@ -383,6 +380,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.
 sudo apt-get update
 sudo apt-get install helm
 ````
+- Set up Prometheus and Grafana to monitor your application.
 
 - Add helm repo
 
@@ -397,7 +395,19 @@ helm repo update
 ```
 
 - Install prometheus controller
-
+### List StorageClasses:
+````
+kubectl get storageclass
+````
+###  install a basic dynamic provisioner
+````
+kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+````
+### Then patch it as default:
+````
+kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+````
+---
 ```
 helm install prometheus prometheus-community/prometheus
 ```
@@ -491,3 +501,7 @@ kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-passwor
     - Past the Dashboard ID `15661` and click on load
     - Select the default Prometheus
     - Click on Import
+      
+<img width="1895" height="940" alt="image" src="https://github.com/user-attachments/assets/4332a9a7-e018-4738-98ce-28d4aa6196a2" />
+
+<img width="1912" height="957" alt="image" src="https://github.com/user-attachments/assets/13e905b8-b640-4369-9394-292446f8b7c8" />
