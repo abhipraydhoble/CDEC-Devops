@@ -1,4 +1,4 @@
-# Introduction
+# Introduction(Experienced)
 ````
 “Hi, my name is Abhipray Dhoble. I’m currently working as a DevOps Engineer at Greamio Technologies, with around 3 years of experience in automating infrastructure, managing CI/CD pipelines, and working with various DevOps and cloud technologies.
 
@@ -25,6 +25,34 @@ Real-time performance monitoring using top, htop, and iostat, and troubleshootin
 Managing services like SSH, FTP, NFS, and configuring Apache, Nginx, and Tomcat servers.
 
 I also ensure infrastructure is secure and scalable by configuring Security Groups, NACLs, Internet/NAT Gateways, and DNS using Route 53.
+````
+
+---
+# Introduction(Fresher):
+````
+“Hi, my name is Abhipray Dhoble. I’m currently working as a DevOps Intern at Cloudblitz Technologies, where I’m gaining hands-on experience with AWS services, Linux system administration, and modern DevOps practices.
+
+Over the last few months, I’ve been involved in tasks like:
+
+Managing AWS infrastructure using services like EC2, IAM, S3, VPC, CloudWatch, and Route 53.
+
+Creating basic CI/CD pipelines using Jenkins, integrated with Git, Maven, and SonarQube for build and code quality automation.
+
+Automating infrastructure using Terraform, and writing Ansible playbooks for server and application configuration.
+
+Working on containerization and orchestration using Docker and Kubernetes (EKS).
+
+Using Prometheus and Grafana for real-time monitoring, and the ELK stack for log analysis.
+
+Alongside my internship, I’ve completed personal DevOps projects to strengthen my skills:
+
+Deployed a Netflix clone and Myntra clone using a full CI/CD pipeline with Jenkins, Docker, and Kubernetes.
+
+Built and deployed a Mario game application using ArgoCD for GitOps-style delivery on Kubernetes.
+
+Practiced infrastructure setup using Terraform to provision secure and scalable environments on AWS.
+
+From a Linux perspective, I’m comfortable with tasks like user and group management, file permissions, disk partitioning, cron jobs, process monitoring, and service configurations on Ubuntu and CentOS systems.
 ````
 
 ### 1. what is operating system ?
