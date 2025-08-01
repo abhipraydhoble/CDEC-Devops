@@ -1,4 +1,31 @@
+# 
+```html
+“Hi, my name is Abhipray Dhoble. I’m currently working as a DevOps Engineer at Greamio Technologies, with around 3 years of experience in automating infrastructure, managing CI/CD pipelines, and working with various DevOps and cloud technologies.
 
+In my current role, I’ve been:
+
+Building and maintaining CI/CD pipelines using Jenkins, integrating it with tools like Git, Maven, and SonarQube to automate builds, tests, and deployments.
+
+Automating infrastructure provisioning using Terraform on AWS, working with services like EC2, IAM, S3, VPC, EBS, CloudWatch, Elastic Load Balancer, Auto Scaling Groups, Route 53, and CloudTrail.
+
+Managing EKS for Kubernetes-based deployments, including services, pods, ingress, and troubleshooting containerized workloads.
+
+Writing Ansible playbooks for server provisioning and configuration automation.
+
+Setting up monitoring and observability with Prometheus, Grafana, and log management using the ELK stack (Elasticsearch, Logstash, Kibana).
+
+Working across Linux environments like Ubuntu, Red Hat, and CentOS for server administration.
+
+On the Linux side, I handle:
+
+User and group management, file permissions, disk partitioning, cron jobs, systemd services, and log analysis.
+
+Real-time performance monitoring using top, htop, and iostat, and troubleshooting network and process-related issues.
+
+Managing services like SSH, FTP, NFS, and configuring Apache, Nginx, and Tomcat servers.
+
+I also ensure infrastructure is secure and scalable by configuring Security Groups, NACLs, Internet/NAT Gateways, and DNS using Route 53.
+```
 
 ### 1. what is operating system ?
 
