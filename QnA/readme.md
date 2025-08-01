@@ -1,5 +1,5 @@
 # Introduction
-```color
+````
 “Hi, my name is Abhipray Dhoble. I’m currently working as a DevOps Engineer at Greamio Technologies, with around 3 years of experience in automating infrastructure, managing CI/CD pipelines, and working with various DevOps and cloud technologies.
 
 In my current role, I’ve been:
@@ -25,7 +25,7 @@ Real-time performance monitoring using top, htop, and iostat, and troubleshootin
 Managing services like SSH, FTP, NFS, and configuring Apache, Nginx, and Tomcat servers.
 
 I also ensure infrastructure is secure and scalable by configuring Security Groups, NACLs, Internet/NAT Gateways, and DNS using Route 53.
-```
+````
 
 ### 1. what is operating system ?
 
