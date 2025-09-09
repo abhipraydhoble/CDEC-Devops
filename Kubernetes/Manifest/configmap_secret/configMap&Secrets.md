@@ -34,7 +34,7 @@ spec:
             - configMapRef:
                 name: app-config
 ```
-## Secrrets
+## Secrets
 - Store sensitive data, such as passwords, API keys
 
 ##### vim secrets.yaml
