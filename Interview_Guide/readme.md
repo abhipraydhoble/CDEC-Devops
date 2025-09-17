@@ -55,20 +55,10 @@ Practiced infrastructure setup using Terraform to provision secure and scalable 
 From a Linux perspective, I’m comfortable with tasks like user and group management, file permissions, disk partitioning, cron jobs, process monitoring, and service configurations on Ubuntu and CentOS systems.
 ````
 
-### 1. what is operating system ?
-
-**An operating system is software that manages hardware and software resources.**
-
-### 2. diff between linux and windows ?
-  
-![image](https://github.com/user-attachments/assets/c0ea28a5-0235-4679-857f-a94f7b74f7c6)
-
-### 3. explain what is open source ?
-
-**Open source refers to software whose source code is made available to the public for free. This means that anyone can view, modify, distribute, and use the software.** 
-
+1. what is operating system ?
+2. diff between linux and windows ?
+3. explain what is open source ?
 4. explain linux architecture ?
-
 5. what is virtlization ?
 6. explain hypervisor and its types ?
 7. what is shell, its types and how to check current shell ?
