@@ -8,3 +8,8 @@ variable "ami_id" {
 }
 
 
+output "lb_link" {
+    value = aws_lb.my_lb.dns_name
+
+}
+
