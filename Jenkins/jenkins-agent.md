@@ -26,8 +26,11 @@
   ![image](https://github.com/user-attachments/assets/d2b103cf-c29e-4ef2-888e-e04601dacdf5)
 
 **Jenkins Node Setup**
+
 ![image](https://github.com/user-attachments/assets/1a9793dc-cf9b-480d-81c2-7c2d1d582f79)
-![image](https://github.com/user-attachments/assets/8ddefb2c-66a9-4ba1-a1aa-31218237cb8d)
+
+<img width="1382" height="550" alt="image" src="https://github.com/user-attachments/assets/3a58d3f5-b6af-4357-a833-986df2fae5b5" />
+
 ![image](https://github.com/user-attachments/assets/e62a3690-66a7-473f-940f-5bf5b615c031)
 
 **Create Job**
