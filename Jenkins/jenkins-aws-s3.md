@@ -1,3 +1,12 @@
+## AWS CLI installation 
+````
+sudo apt install unzip -y
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+````
+
+
 ## Plugins Required
 ````
 stage view
@@ -31,7 +40,7 @@ pipeline {
     agent any
     
    environment {
-        S3_BUCKET = 'insure-me.com'
+        S3_BUCKET = 'oncdec-b29-jen-s3-integration'
         AWS_REGION = 'ap-southeast-1'
         warFile = 'target/Insurance-0.0.1-SNAPSHOT.jar'
     }
