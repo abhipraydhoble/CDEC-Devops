@@ -41,6 +41,25 @@ host_key_checking = False
 ````
 ansible all -m ping
 ````
+
+````
+- hosts: all
+  become: yes
+  tasks:
+
+    - name: update
+      apt: update_cache=yes
+
+    - name: Install Nginx
+      apt: name=nginx state=latest
+
+      notify:
+        - restart nginx
+
+  handlers:
+    - name: restart nginx
+      service: name=nginx state=reloaded
+````
 ### run playbook
 ````
 ansible-playbook nginx.yaml
