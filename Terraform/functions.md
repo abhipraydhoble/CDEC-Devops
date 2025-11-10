@@ -1,4 +1,32 @@
+````
+resource "aws_instance" "example" {
+  count         = 3
+  ami           = "ami-123456" # Use a valid AMI
+  instance_type = "t2.micro"
 
+  tags = {
+    Name = "server-${count.index}"
+  }
+}
+````
+
+
+````
+variable "instance_names" {
+  default = ["web", "app", "db"]
+}
+
+resource "aws_instance" "example" {
+  for_each = toset(var.instance_names)
+
+  ami           = "ami-123456"
+  instance_type = "t2.micro"
+  tags = {
+    Name = each.value
+  }
+}
+
+````
 ## for_each(list)
 ```hcl
 resource "aws_instance" "example" {
